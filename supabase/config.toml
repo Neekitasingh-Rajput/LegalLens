@@ -1,0 +1,7 @@
+project_id = "bvhymhdvylywpadrgpbr"
+
+[functions.analyze-document]
+verify_jwt = false
+
+[functions.legal-chat]
+verify_jwt = false

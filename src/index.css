@@ -1,0 +1,195 @@
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/500.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 45 20% 95%;
+
+    --card: 222 40% 10%;
+    --card-foreground: 45 20% 95%;
+
+    --popover: 222 40% 10%;
+    --popover-foreground: 45 20% 95%;
+
+    --primary: 43 70% 45%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 222 35% 15%;
+    --secondary-foreground: 45 20% 95%;
+
+    --muted: 222 30% 18%;
+    --muted-foreground: 220 15% 60%;
+
+    --accent: 43 70% 45%;
+    --accent-foreground: 222 47% 6%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 20%;
+    --input: 222 30% 18%;
+    --ring: 43 70% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gold: 43 70% 45%;
+    --gold-light: 43 80% 55%;
+    --gold-dark: 43 60% 35%;
+    --navy: 222 47% 11%;
+    --navy-light: 222 35% 18%;
+    --navy-dark: 222 47% 6%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(43 70% 45%), hsl(43 80% 55%));
+    --gradient-navy: linear-gradient(180deg, hsl(222 47% 11%), hsl(222 47% 6%));
+    --gradient-card: linear-gradient(145deg, hsl(222 40% 12%), hsl(222 40% 8%));
+    --gradient-hero: radial-gradient(ellipse at top, hsl(222 35% 15%), hsl(222 47% 6%));
+
+    /* Shadows */
+    --shadow-gold: 0 4px 30px -5px hsl(43 70% 45% / 0.3);
+    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 60px hsl(43 70% 45% / 0.15);
+
+    /* Sidebar */
+    --sidebar-background: 222 40% 10%;
+    --sidebar-foreground: 45 20% 95%;
+    --sidebar-primary: 43 70% 45%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 35% 15%;
+    --sidebar-accent-foreground: 45 20% 95%;
+    --sidebar-border: 222 30% 20%;
+    --sidebar-ring: 43 70% 45%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 45 20% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(43 70% 45%), hsl(43 80% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, hsl(43 70% 45%), hsl(43 80% 55%));
+  }
+
+  .bg-gradient-card {
+    background: linear-gradient(145deg, hsl(222 40% 12%), hsl(222 40% 8%));
+  }
+
+  .bg-gradient-hero {
+    background: radial-gradient(ellipse at top, hsl(222 35% 15%), hsl(222 47% 6%));
+  }
+
+  .shadow-gold {
+    box-shadow: 0 4px 30px -5px hsl(43 70% 45% / 0.3);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 60px hsl(43 70% 45% / 0.15);
+  }
+
+  .border-gold {
+    border-color: hsl(43 70% 45% / 0.3);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(43 70% 45% / 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
